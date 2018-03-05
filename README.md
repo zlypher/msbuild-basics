@@ -9,6 +9,13 @@ Demo of basic usage of msbuild and the csproj format.
 * [Preparation](#preparation)
 * [Basics](#basics)
 * [Getting Started](#getting-started)
+  * [Hello World](#hello-world)
+  * [Properties / Variables](#properties--variables)
+  * [Parameters](#parameters)
+  * [Conditions / IF](#conditions--if)
+  * [Dependencies](#dependencies)
+  * [Import](#import)
+  * [Predefined Tasks](#predefined-tasks)
 * [Resources](#resources)
 * [License](#license)
 
@@ -187,7 +194,7 @@ TargetFour:
   TargetFour
 ```
 
-### Reuse Propertes/Targets
+### Import
 
 Now csproj files might get quite big and some parts might be reused in other projects. Luckily you can move properties or targets into external files and import them.
 
@@ -220,7 +227,7 @@ Common names for external files are
 </Project>
 ```
 
-Calling the `Target` "ExternalTarget will work, as if it was specified inside `demo.csproj`.
+Calling the `Target` "ExternalTarget" will work, as if it was specified inside `demo.csproj`.
 
 ``` console
 $ MSBuild demo.csproj /t:ExternalTarget
