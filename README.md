@@ -10,9 +10,9 @@ Demo of basic usage of msbuild and the csproj format.
 * [Basics](#basics)
 * [Getting Started](#getting-started)
   * [Hello World](#hello-world)
-  * [Properties / Variables](#properties--variables)
+  * [Properties](#properties)
   * [Parameters](#parameters)
-  * [Conditions / IF](#conditions--if)
+  * [Conditions](#conditions)
   * [Dependencies](#dependencies)
   * [Import](#import)
   * [Predefined Tasks](#predefined-tasks)
@@ -26,7 +26,7 @@ MSBuild is the [Microsoft Build Engine](https://docs.microsoft.com/en-us/visuals
 
 ## Preparation
 
-Before you get started, make sure that `msbuild` is installed and added to your PATH. MSBuild should be at least in version 15.
+Before you get started, make sure that `msbuild` is installed and added to your `PATH`. MSBuild should be at least in version 15.
 
 ```console
 $ msbuild /version
@@ -53,13 +53,13 @@ The XML schema for MSBuild is basically a small programming language which is us
  - **Properties** are similar to variables. The are key/value pairs and can be reused throughout the project file.
  - **Items** are inputs into the build system and typically represent files.
  - **Tasks** are chunks of executable code (written in managed code). So they act somewhat like functions.
- - **Targets** can be compared to function as well. The group multiple tasks together and represent potential entry points.
+ - **Targets** can be compared to function as well. They group multiple tasks together and represent potential entry points.
 
 ## Getting Started
 
 ### Hello World
 
-Let's start with a simple Hello World. 
+Let's start with a simple Hello World example. 
 
 ```xml
 <!-- demo.csproj -->
@@ -91,9 +91,9 @@ Der Buildvorgang wurde erfolgreich ausgeführt.
 Verstrichene Zeit 00:00:00.06
 ```
 
-### Properties / Variables
+### Properties
 
-Next up, we want to store some values and reuse them throughout our project file. This can be achieved with properties.
+Next up, we want to store some values and reuse them throughout our project file. This can be achieved with properties. Properties always have to be defined inside `PropertyGroup` elements.
 
 ```xml
 <!-- demo.csproj -->
@@ -129,7 +129,7 @@ Next up, we want to modify the behaviour of the project, by defining parameters 
 </Project>
 ```
 
-Let's simply output the value of the given parameter. The parameter itself can be specified via an option during the command line call.
+Let's simply output the value of the given parameter. The parameter itself can be specified via an option during the command line call. Apart from that, parameters can be used interchangeably with properties.
 
 ```console
 $ MSBuild demo.csproj /t:TargetThree /p:ParameterOne="Hello from params"
@@ -137,7 +137,7 @@ TargetThree:
   Hello from params
 ```
 
-### Conditions / IF
+### Conditions
 
 Now we want to modify the behaviour of the project, depending on the parameter. MSBuild doesn't support `if`-clauses like other languages. Instead, all elements accept a `Condition` attribute. If the condition evaluates to false, the whole element will be skipped.
 
@@ -169,7 +169,7 @@ TargetCondition:
 
 ### Dependencies
 
-Since a build can consist of multiple dependent targets, it would be great if we can define some kind of dependencies between targets. And in fact this is possible with the attributes `BeforeTargets/AfterTargets` on the `<Target>` element.
+Since a build can consist of multiple dependent targets, it would be great if we can define some kind of dependencies between targets. And in fact this is possible with the attributes `BeforeTargets/AfterTargets` on the `Target` element.
 
 ```xml
 <!-- demo.csproj -->
@@ -196,14 +196,13 @@ TargetFour:
 
 ### Import
 
-Now csproj files might get quite big and some parts might be reused in other projects. Luckily you can move properties or targets into external files and import them.
+Now csproj files might get quite big and some parts might be reused in other projects. Luckily, you can move properties or targets into external files and import them.
 
 External files can be imported with `<Import Project="./external.targets" />`. Everything defined in the external file is then available in the original csproj file.
 
 Common names for external files are
  - Properties: ".props"
  - Targets: ".targets"
-
 
 ```xml
 <!-- demo.csproj -->
