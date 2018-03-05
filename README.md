@@ -20,8 +20,8 @@ MSBuild is the [Microsoft Build Engine](https://docs.microsoft.com/en-us/visuals
 
 Before you get started, make sure that `msbuild` is installed and added to your PATH. MSBuild should be at least in version 15.
 
-```bash
-λ msbuild /version
+```console
+$ msbuild /version
 Microsoft (R)-Buildmodul, Version 15.5.180.51428 für .NET Framework
 Copyright (C) Microsoft Corporation. Alle Rechte vorbehalten.
 
@@ -30,8 +30,8 @@ Copyright (C) Microsoft Corporation. Alle Rechte vorbehalten.
 
 To get a feel for the `msbuild` command, you can can consult the `/help` option. You will see the general usage and available options.
 
-```bash
-λ msbuild /help
+```console
+$ msbuild /help
 Microsoft (R)-Buildmodul, Version 15.5.180.51428 für .NET Framework
 Copyright (C) Microsoft Corporation. Alle Rechte vorbehalten.
 
