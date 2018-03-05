@@ -17,7 +17,7 @@
 
     <Target Name="TargetCondition">
         <Message Condition="'$(ParameterOne)'!=''" Text="Param is defined" />
-        <Message Condition="" Text="Param is NOT defined" />
+        <Message Condition="'$(ParameterOne)'==''" Text="Param is NOT defined" />
     </Target>
 
     <Target Name="TargetFour">
