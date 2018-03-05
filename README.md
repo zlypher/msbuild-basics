@@ -9,6 +9,7 @@ Demo of basic usage of msbuild and the csproj format.
 * [Preparation](#preparation)
 * [Basics](#basics)
 * [Getting Started](#getting-started)
+* [Resources](#resources)
 * [License](#license)
 
 ## What is MSBuild?
@@ -256,6 +257,11 @@ CopyFiles:
   Die Datei wird von "external.props" in "./dist\external.props" kopiert.
   Die Datei wird von "external.targets" in "./dist\external.targets" kopiert.
 ```
+
+## Resources
+
+* [MSBuild | Visual Studio Docs](https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild)
+* [MSBuild Task Reference | Visual Studio Docs](https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild-task-reference)
 
 ## License
 
