@@ -1,6 +1,6 @@
 # msbuild basics
 
-Demo of basic usage of msbuild and the csproj format.
+Demo of basic usage of msbuild and the csproj format by [TheDarkEye666](https://github.com/TheDarkEye666) and [zlpyher](https://github.com/zlypher).
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
