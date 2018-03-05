@@ -118,7 +118,7 @@ TargetTwo:
 
 ### Parameters
 
-Next up, we want to modify the behaviour of the project, by defining parameters (think about build configuration Debug/Release for example).
+To modify the behaviour of the project from outside, parameters on the command line can be used (think about build configuration Debug/Release for example).
 
 ```xml
 <!-- demo.csproj -->
