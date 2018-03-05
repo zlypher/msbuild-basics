@@ -1,0 +1,5 @@
+<Project>
+    <PropertyGroup>
+        <ExternalVariable>External</ExternalVariable>
+    </PropertyGroup>
+</Project>

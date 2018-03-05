@@ -1,0 +1,45 @@
+<Project>
+    <PropertyGroup>
+        <VariableOne>This is a variable</VariableOne>
+    </PropertyGroup>
+
+    <Target Name="TargetOne">
+        <Message Text="HelloWorld" />
+    </Target>
+
+    <Target Name="TargetTwo">
+        <Message Text="$(VariableOne)" />
+    </Target>
+
+    <Target Name="TargetThree">
+        <Message Text="$(ParameterOne)" />
+    </Target>
+
+    <Target Name="TargetCondition">
+        <Message Condition="'$(ParameterOne)'!=''" Text="Param is defined" />
+        <Message Condition="" Text="Param is NOT defined" />
+    </Target>
+
+    <Target Name="TargetFour">
+        <Message Text="TargetFour" />
+    </Target>
+
+    <Target Name="TargetBeforeFour" BeforeTargets="TargetFour">
+        <PropertyGroup>
+            <BeforeMessage>Before TargetFour</BeforeMessage>
+        </PropertyGroup>
+        <Message Text="$(BeforeMessage)" />
+    </Target>
+
+    <Import Project="./external.targets" />
+
+    <ItemGroup>
+        <MySourceFiles Include="external.props;external.targets"/>
+    </ItemGroup>
+
+    <Target Name="CopyFiles">
+        <Copy
+            SourceFiles="@(MySourceFiles)"
+            DestinationFolder="./dist" />
+    </Target>
+</Project>

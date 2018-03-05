@@ -1,0 +1,6 @@
+<Project>
+    <Import Project="./external.props" />
+    <Target Name="ExternalTarget">
+        <Message Text="$(ExternalVariable) Message" />
+    </Target>
+</Project>
