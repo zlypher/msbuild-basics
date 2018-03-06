@@ -30,6 +30,13 @@
         </PropertyGroup>
         <Message Text="$(BeforeMessage)" />
     </Target>
+    
+    <Target Name="TargetAfterFour" AfterTargets="TargetFour">
+        <PropertyGroup>
+            <AfterMessage>After TargetFour</AfterMessage>
+        </PropertyGroup>
+        <Message Text="$(AfterMessage)" />
+    </Target>
 
     <Import Project="./external.targets" />
 
